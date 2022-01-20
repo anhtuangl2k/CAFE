@@ -11,22 +11,25 @@ package com.tt.pojo;
  */
 public class Ban {
 
-	private static int ma = 0;
+	public static int ma = 1;
 
 	private String maBan;
 	private String sucChua;
 	private String tinhTrang;
 
 	// Nothing special
-	
+	public Ban(){
+            
+        }
+        
 	public Ban(String maBan, String sucChua, String tinhTrang) {
 		this.maBan = maBan;
 		this.sucChua = sucChua;
 		this.tinhTrang = tinhTrang;
 	}
 
-	public int getMaBan() {
-		return maBan;
+	public String getMaBan() {
+            return maBan;
 	}
 
 	public void setMaBan(String maBan) {

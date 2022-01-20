@@ -35,17 +35,28 @@ public class Menu {
             }while (choose < 0 || choose > 8);
             
             switch(choose){
-            case 1:
-                BoPhanService.menuBoPhan(scanner);
-                break;
-            case 2:
-                NhanVienService.menuNhanVien(scanner);
-            case 0:
-                flag = false;
-                break;                
-        }
+                case 1:
+                    BoPhanService.menuBoPhan(scanner);
+                    break;
+                case 2:
+                    NhanVienService.menuNhanVien(scanner);
+                case 3:
+                    BanService.menuBan(scanner);
+                case 4:
+                    ThucPhamService.menuThucPham(scanner);
+                    break;
+                case 5:
+                    NhanVienService.danhSachSinhNhat();
+                    break;
+                case 6:
+                    HoaDonService.chonBan();
+                    break;
+                case 0:
+                    flag = false;
+                    break;                
+            }
             
-        }while (!flag);
+        }while (flag);
         
         
     }

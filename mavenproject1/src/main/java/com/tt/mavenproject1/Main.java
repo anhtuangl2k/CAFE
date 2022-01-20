@@ -5,9 +5,12 @@
  */
 package com.tt.mavenproject1;
 
+import com.tt.UI.BanService;
 import static com.tt.UI.BoPhanService.addBoPhan;
 import java.text.ParseException;
 import com.tt.UI.Menu;
+import com.tt.UI.NhanVienService;
+import com.tt.UI.ThucPhamService;
 import java.io.IOException;
 import java.util.Scanner;
 /**
@@ -19,6 +22,9 @@ public class Main {
     public static void main(String[] args) throws ParseException{
         Scanner scanner = new Scanner(System.in);
         addBoPhan();
+        ThucPhamService.addThucAn();
+        NhanVienService.addNhanVien();
+        BanService.addBan();
         Menu.Menu(scanner);
     }
     

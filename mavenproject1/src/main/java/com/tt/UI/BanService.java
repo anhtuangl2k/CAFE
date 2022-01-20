@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tt.pojo;
+package com.tt.UI;
+
+import static com.tt.UI.Menu.Menu;
+import com.tt.pojo.Ban;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -12,8 +18,12 @@ package com.tt.pojo;
 public class BanService {
 
 	private static ArrayList<Ban> listBan = new ArrayList<Ban>();
+        
+        public static void addBan(){
+            listBan.add(new Ban("S0001", "5", "trong"));
+        }
 
-	public static void menuBoPhan(Scanner scanner) throws ParseException {
+	public static void menuBan(Scanner scanner) throws ParseException {
 		int chooseBoPhan;
 		boolean flag = true;
 
@@ -58,66 +68,65 @@ public class BanService {
 	public static void themBan() {
 		Scanner scanner = new Scanner(System.in);
 		Ban b = new Ban();
-		b.setMaBan(String.format("B$03d", b.ma));
+		b.setMaBan(String.format("B%03d", b.ma));
 		System.out.println("Nhap suc chua cua ban: ");
 		String sucChua = scanner.nextLine();
 		b.setSucChua(sucChua);
 		b.setTinhTrang("trong");
 
-		listBan.add(b);
+		getListBan().add(b);
 	}
 
 	public static void capNhatThongTinBan() {
-		boolean flag = false;
-		Scanner scanner = new Scanner(System.in);
-		String maBan;
+            boolean flag = false;
+            Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Nhap ma ban can tim: ");
-		String maBan = scanner.nextLine();
+            System.out.println("Nhap ma ban can tim: ");
+            String maBan = scanner.nextLine();
 
-		for (int i = 0; i < listBan.size(); i++) {
-			if (listBan.get(i).getMaBan().equals(maBan)) {
-				System.out.println("Nhap suc chua: ");
-				String sucChua = scanner.nextLine();
-				listBan.get(i).setSucChua(sucChua);
-				System.out.println("Nhap tinh trang: ");
-				String tinhtrang = scanner.nextLine();
-				listBan.get(i).setTinhTrang(tinhtrang);
-				System.out.println("Cap nhat thanh cong! ");
-				flag = true;
-				break;
-			}
+            for (int i = 0; i < getListBan().size(); i++) {
+                if (getListBan().get(i).getMaBan().equals(maBan)) {
+                        System.out.println("Nhap suc chua: ");
+                        String sucChua = scanner.nextLine();
+                        getListBan().get(i).setSucChua(sucChua);
+                        System.out.println("Nhap tinh trang: ");
+                        String tinhtrang = scanner.nextLine();
+                        getListBan().get(i).setTinhTrang(tinhtrang);
+                        System.out.println("Cap nhat thanh cong! ");
+                        flag = true;
+                        break;
+                }
 
-		}
-		if (!flag)
-			System.out.println("Ma ban khong ton tai! Thu lai sau ");
+            }
+            if (!flag)
+                    System.out.println("Ma ban khong ton tai! Thu lai sau ");
 	}
 
 	public static void xoaBan() {
-		Scanner scanner = new Scanner(System.in);
-		String maBan;
+            boolean flag = false;
+            Scanner scanner = new Scanner(System.in);
+            
+            System.out.println("Nhap ma ban can tim: ");
+            String maBan = scanner.nextLine();
 
-		System.out.println("Nhap ma ban can tim: ");
-		String maBan = scanner.nextLine();
-
-		for (int i = 0; i < listBan.size(); i++) {
-			if (listBan.get(i).getMaBan().equals(maBan)) {
-				listBan.remove(i);
-				System.out.println("Cap nhat thanh cong! ");
-				break;
-			}
-		}
-		if (!flag)
-			System.out.println("Ma ban khong ton tai! Thu lai sau ");
+            for (int i = 0; i < getListBan().size(); i++) {
+                    if (getListBan().get(i).getMaBan().equals(maBan)) {
+                            getListBan().remove(i);
+                            System.out.println("Cap nhat thanh cong! ");
+                            break;
+                    }
+            }
+            if (!flag)
+                    System.out.println("Ma ban khong ton tai! Thu lai sau ");
 	}
 
 	public static void layBanTrong() {
-		for (int i = 0; i < listBan.size(); i++) {
-			if (listBan.get(i).getTinhTrang().equals("trong"))
-				System.out.println("Ma Ban: " + listBan.get(i).getMaBan());
-			System.out.println("Suc Chua: " + listBan.get(i).getSucChua());
-			System.out.println("==========================================");
-		}
+            for (int i = 0; i < getListBan().size(); i++) {
+                    if (getListBan().get(i).getTinhTrang().equals("trong"))
+                            System.out.println("Ma Ban: " + getListBan().get(i).getMaBan());
+                    System.out.println("Suc Chua: " + getListBan().get(i).getSucChua());
+                    System.out.println("==========================================");
+            }
 	}
 
 	public static void timBanTheoSucChua() {
@@ -125,12 +134,27 @@ public class BanService {
 		System.out.println("Nhap suc chua cua ban: ");
 		String sucChua = scanner.nextLine();
 
-		for (int i = 0; i < listBan.size(); i++) {
-			if (listBan.get(i).getSucChua().equals(sucChua))
-				System.out.println("Ma Ban: " + listBan.get(i).getMaBan());
-			System.out.println("Tinh Trang: " + listBan.get(i).getTinhTrang());
+		for (int i = 0; i < getListBan().size(); i++) {
+			if (getListBan().get(i).getSucChua().equals(sucChua))
+				System.out.println("Ma Ban: " + getListBan().get(i).getMaBan());
+			System.out.println("Tinh Trang: " + getListBan().get(i).getTinhTrang());
 			System.out.println("==========================================");
 		}
 	}
+
+    /**
+     * @return the listBan
+     */
+    public static ArrayList<Ban> getListBan() {
+        return listBan;
+    }
+
+    /**
+     * @param aListBan the listBan to set
+     */
+    public static void setListBan(ArrayList<Ban> aListBan) {
+        listBan = aListBan;
+    }
+        
 
 }

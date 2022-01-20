@@ -7,12 +7,9 @@ package com.tt.UI;
 
 
 import static com.tt.UI.Menu.Menu;
-import com.tt.mavenproject1.Main;
 import com.tt.pojo.BoPhan;
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -63,8 +60,7 @@ public class BoPhanService {
                     flag = false;
                     break;
             }
-        }while(flag);
-                  
+        }while(flag);                  
     }
     
     public static void themBoPhan(){
