@@ -33,7 +33,7 @@ public class BanService {
 		System.out.println("4. Danh sach ban trong");
 		System.out.println("5. Danh sach ban theo suc chua");
 		System.out.println("0. Thoat");
-
+                System.out.println("===============================================");
 		do {
 			do {
 				System.out.println("Nhap chuc nang: ");

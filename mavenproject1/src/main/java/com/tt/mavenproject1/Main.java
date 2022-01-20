@@ -7,6 +7,7 @@ package com.tt.mavenproject1;
 
 import com.tt.UI.BanService;
 import static com.tt.UI.BoPhanService.addBoPhan;
+import com.tt.UI.HoaDonService;
 import java.text.ParseException;
 import com.tt.UI.Menu;
 import com.tt.UI.NhanVienService;
@@ -23,8 +24,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         addBoPhan();
         ThucPhamService.addThucAn();
+        ThucPhamService.addThucUong();
         NhanVienService.addNhanVien();
         BanService.addBan();
+        HoaDonService.addHoaDon();
         Menu.Menu(scanner);
     }
     

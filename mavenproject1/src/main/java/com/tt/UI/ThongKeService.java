@@ -17,14 +17,14 @@ import java.util.Scanner;
  */
 public class ThongKeService {
 
-    public void menuthongKe(Scanner scanner) throws ParseException {
+    public static void menuthongKe(Scanner scanner) throws ParseException {
         int chooseBoPhan;
         boolean flag = true;
 
         System.out.println("1. Thong ke theo thang");
         System.out.println("2. Thong ke theo thoi gian");
         System.out.println("0. Thoat");
-
+        System.out.println("===============================================");
         do {
             do {
                 System.out.println("Nhap chuc nang: ");
@@ -36,7 +36,7 @@ public class ThongKeService {
                     thongKeThang();
                     break;
                 case 2:
-//                    xoaBoPhan();
+                    thongKeTheoThoiGian();
                     break;
                 default:
                     Menu(scanner);

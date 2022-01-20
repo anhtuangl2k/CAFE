@@ -27,6 +27,13 @@ public class ThucPhamService {
         listThucAn.add(new ThucAn("com chay", 50000, " con hang", " thuc pham chay"));
     }
     
+    public static void addThucUong(){
+        listThucUong.add(new ThucUong("coca", 200000, " con hang", "uong da"));
+        listThucUong.add(new ThucUong("pepsi", 200000, " con hang", "uong da"));
+        listThucUong.add(new ThucUong("7up", 200000, " con hang", "uong da"));
+
+    }
+    
     public static void menuThucPham(Scanner scanner) throws ParseException{
 
         int choose;
@@ -35,7 +42,7 @@ public class ThucPhamService {
         System.out.println("1. Quan ly thuc an");
         System.out.println("2. Quan ly thuc uong");
         System.out.println("0. Thoat");
-        
+        System.out.println("===============================================");
         do{
             do{
                 System.out.println("Nhap chuc nang: ");
@@ -67,7 +74,7 @@ public class ThucPhamService {
         System.out.println("3. Sua mon an");
         System.out.println("4. Danh sach mon an ");
         System.out.println("0. Thoat");
-
+        System.out.println("===============================================");
         do{
             do{
                 System.out.println("Nhap chuc nang: ");
@@ -137,6 +144,9 @@ public class ThucPhamService {
         Scanner scanner = new Scanner(System.in);        
         System.out.println("Nhap ma thuc an can sua: ");
         Integer maThucAn = scanner.nextInt();
+        // Lấy dấu enter cuối cùng
+        String a = scanner.nextLine();
+               
         for (int i = 0; i < getListThucAn().size(); i++){
             if(getListThucAn().get(i).getMaThucAn() == maThucAn){
                 
@@ -152,7 +162,10 @@ public class ThucPhamService {
                 System.out.println("Thuc pham chay: ");
                 String chay = scanner.nextLine();
                                
-                getListThucAn().set(listThucAn.indexOf(i),new ThucAn(tenMonAn, giaBan, tinhTrang, chay));
+                getListThucAn().get(i).setTen(tenMonAn);
+                getListThucAn().get(i).setGiaBan(giaBan);
+                getListThucAn().get(i).setTinhTrang(tinhTrang);
+                getListThucAn().get(i).setThucPhamChay(chay);
                 System.out.println("Sua thanh cong");
                 checkMa = false;
                 break;
@@ -278,6 +291,8 @@ public class ThucPhamService {
         Scanner scanner = new Scanner(System.in);        
         System.out.println("Nhap ma thuc uong can sua: ");
         Integer maThucUong = scanner.nextInt();
+        // Lấy dấu enter cuối cùng
+        String a = scanner.nextLine();
         for (int i = 0; i < getListThucUong().size(); i++){
             if(getListThucUong().get(i).getMaThucUong() == maThucUong){
                 
@@ -293,7 +308,10 @@ public class ThucPhamService {
                 System.out.println("Phan tram da: ");
                 String da = scanner.nextLine();
                                
-                getListThucUong().set(listThucUong.indexOf(i),new ThucUong(tenThucUong, giaBan, tinhTrang, da));
+                getListThucUong().get(i).setTen(tenThucUong);
+                getListThucUong().get(i).setGiaBan(giaBan);
+                getListThucUong().get(i).setTinhTrang(tinhTrang);
+                getListThucUong().get(i).setDa(da);
                 System.out.println("Sua thanh cong");
                 checkMa = false;
                 break;

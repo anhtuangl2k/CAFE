@@ -35,7 +35,7 @@ public class BoPhanService {
         System.out.println("3. Sua bo phan");
         System.out.println("4. Danh sach bo phan");
         System.out.println("0. Thoat");
-        
+        System.out.println("===============================================");
         do{
             do{
                 System.out.println("Nhap chuc nang: ");

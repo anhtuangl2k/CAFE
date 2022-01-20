@@ -5,6 +5,7 @@
  */
 package com.tt.UI;
 
+import static com.tt.UI.Menu.Menu;
 import com.tt.pojo.BoPhan;
 import com.tt.pojo.NhanVien;
 import java.text.ParseException;
@@ -39,7 +40,7 @@ public class NhanVienService {
         System.out.println("3. Sua nhan vien ");
         System.out.println("4. Danh sách nhan vien ");
         System.out.println("0. Thoat");
-
+        System.out.println("===============================================");
         do{
             do{
                 System.out.println("Nhap chuc nang: ");
@@ -51,16 +52,16 @@ public class NhanVienService {
                     themNhanVien();
                     break;
                 case 2:
-
+                    xoaNhanVien();
                     break;
                 case 3:
-
+                    suaNhanVien();
                     break;
                 case 4:
                     danhSachNhanVien();
                     break;
                 default:
-
+                    Menu(scanner);
                     flag = false;
                     break;
             }
@@ -92,7 +93,9 @@ public class NhanVienService {
                  System.out.println("Ma bo phan khong hop le");
             }
         }            
-        getListNhanVien().add(new NhanVien(tenNhanVien, gioiTinh, ngaySinh, queQuan, ngayVaoLam, b));            
+        getListNhanVien().add(new NhanVien(tenNhanVien, gioiTinh, ngaySinh, queQuan, ngayVaoLam, b));   
+        System.out.println("Them thanh cong");
+        System.out.println("===============================================");
     }
 
     public static void danhSachNhanVien(){
@@ -124,6 +127,7 @@ public class NhanVienService {
         if(checkMa){
             System.out.println("Ma nhan vien khong phu hop");
         }
+        System.out.println("===============================================");
     }
 
     public static void suaNhanVien() throws ParseException{
@@ -132,6 +136,8 @@ public class NhanVienService {
         Scanner scanner = new Scanner(System.in);        
         System.out.println("Nhap ma nhan vien can sua: ");
         Integer maNhanVien = scanner.nextInt();
+        // Lấy dấu enter cuối cùng
+        String a = scanner.nextLine();
         for (int i = 0; i < getListNhanVien().size(); i++){
             if(getListNhanVien().get(i).getMaNhanVien() == maNhanVien){
 
@@ -156,7 +162,11 @@ public class NhanVienService {
                          System.out.println("Ma bo phan khong hop le");
                     }
                 } 
-                getListNhanVien().set(listNhanVien.indexOf(i),new NhanVien(tenNhanVien, gioiTinh, ngaySinh, queQuan, ngayVaoLam, b));
+                getListNhanVien().get(i).setHoTen(tenNhanVien);
+                getListNhanVien().get(i).setGioiTinh(gioiTinh);
+                getListNhanVien().get(i).setNgaySinh(ngaySinh);
+                getListNhanVien().get(i).setQueQuan(queQuan);
+                getListNhanVien().get(i).setNgayVaoLam(ngayVaoLam);
                 System.out.println("Sua thanh cong");
                 checkMa = false;
                 break;
@@ -165,6 +175,7 @@ public class NhanVienService {
         if(checkMa){
             System.out.println("Ma bo phan khong phu hop");
         }
+        System.out.println("===============================================");
     }
         
         

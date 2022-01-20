@@ -8,10 +8,10 @@ package com.tt.UI;
 import com.tt.pojo.HoaDon;
 import com.tt.pojo.ThucAn;
 import com.tt.pojo.ThucUong;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -21,12 +21,17 @@ import java.util.Scanner;
 public class HoaDonService {
 
     private static ArrayList<HoaDon> listHoaDon = new ArrayList<>();
+    
+    public static void addHoaDon() throws ParseException{
+        SimpleDateFormat d = new SimpleDateFormat("dd/MM/yyyy");
+        listHoaDon.add(new HoaDon(ThucPhamService.getListThucAn(), ThucPhamService.getListThucUong(), 600.00, d.parse("20/1/2022")));
+    }
 
     public static void chonBan() {
 
         BanService.layBanTrong();
         System.out.println("0. Thoat");
-
+        
         Scanner scanner = new Scanner(System.in);
         System.out.println("Chon ma ban: ");
 

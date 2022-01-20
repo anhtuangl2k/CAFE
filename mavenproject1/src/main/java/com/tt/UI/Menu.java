@@ -24,10 +24,9 @@ public class Menu {
         System.out.println("4. Quan ly thuc an va thuc uong");
         System.out.println("5. Sinh nhat sinh vien trong thang");
         System.out.println("6. Dat ban");
-        System.out.println("7. Thanh toan");
-        System.out.println("8. Thong ke");
+        System.out.println("7. Thong ke");
         System.out.println("0. Thoat");
-        
+        System.out.println("===============================================");
         do{
             do {
                 System.out.println("Nhap chuc nang: ");
@@ -51,6 +50,8 @@ public class Menu {
                 case 6:
                     HoaDonService.chonBan();
                     break;
+                case 7:
+                    ThongKeService.menuthongKe(scanner);
                 case 0:
                     flag = false;
                     break;                
