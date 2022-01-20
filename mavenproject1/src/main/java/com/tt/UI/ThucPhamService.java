@@ -22,9 +22,9 @@ public class ThucPhamService {
     private static ArrayList<ThucUong> listThucUong = new ArrayList<ThucUong>();
     
     public static void addThucAn(){
-        listThucAn.add(new ThucAn("com chien", 120000, "con hang", "khong phai thuc pham chay"));
-        listThucAn.add(new ThucAn("mi xao", 80000, "con hang", "khong phai thuc pham chay"));
-        listThucAn.add(new ThucAn("com chay", 50000, "con hang", "thuc pham chay"));
+        listThucAn.add(new ThucAn("com chien", 120000, " con hang", " khong phai thuc pham chay"));
+        listThucAn.add(new ThucAn("mi xao", 80000, " con hang", " khong phai thuc pham chay"));
+        listThucAn.add(new ThucAn("com chay", 50000, " con hang", " thuc pham chay"));
     }
     
     public static void menuThucPham(Scanner scanner) throws ParseException{
@@ -47,6 +47,7 @@ public class ThucPhamService {
                     menuThucAn(scanner);
                     break;
                 case 2:
+                    menuThucUong(scanner);
                     break;
                 default:
                     Menu(scanner);

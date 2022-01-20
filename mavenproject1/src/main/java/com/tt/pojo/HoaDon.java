@@ -6,6 +6,7 @@
 package com.tt.pojo;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -19,13 +20,15 @@ public class HoaDon {
     private ArrayList<ThucAn> listThucAnHoaDon = new ArrayList<ThucAn>();
     private ArrayList<ThucUong> listThucUongHoaDon = new ArrayList<ThucUong>();
     private Double tongTien;
+    private Date ngayTao;
 
-    public HoaDon(ArrayList<ThucAn> listThucAn, ArrayList<ThucUong> listThucUong, Double tongTien) {
+    public HoaDon(ArrayList<ThucAn> listThucAn, ArrayList<ThucUong> listThucUong, Double tongTien, Date ngayTao) {
         MA_HOA_DON++;
         this.maHoaDon = MA_HOA_DON;
         this.listThucAnHoaDon = listThucAn;
         this.listThucUongHoaDon = listThucUong;
         this.tongTien = tongTien;
+        this.ngayTao = ngayTao;
     }
     
     
@@ -84,6 +87,20 @@ public class HoaDon {
      */
     public void setTongTien(Double tongTien) {
         this.tongTien = tongTien;
+    }
+
+    /**
+     * @return the ngayTao
+     */
+    public Date getNgayTao() {
+        return ngayTao;
+    }
+
+    /**
+     * @param ngayTao the ngayTao to set
+     */
+    public void setNgayTao(Date ngayTao) {
+        this.ngayTao = ngayTao;
     }
     
     
