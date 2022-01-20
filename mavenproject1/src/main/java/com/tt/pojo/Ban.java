@@ -17,6 +17,8 @@ public class Ban {
 	private String sucChua;
 	private String tinhTrang;
 
+	// Nothing special
+	
 	public Ban(String maBan, String sucChua, String tinhTrang) {
 		this.maBan = maBan;
 		this.sucChua = sucChua;
