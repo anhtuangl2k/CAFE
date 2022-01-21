@@ -25,6 +25,10 @@ public class HoaDonService {
     public static void addHoaDon() throws ParseException{
         SimpleDateFormat d = new SimpleDateFormat("dd/MM/yyyy");
         listHoaDon.add(new HoaDon(ThucPhamService.getListThucAn(), ThucPhamService.getListThucUong(), 600.00, d.parse("20/1/2022")));
+        listHoaDon.add(new HoaDon(ThucPhamService.getListThucAn(), ThucPhamService.getListThucUong(), 700.00, d.parse("24/12/2021")));
+        listHoaDon.add(new HoaDon(ThucPhamService.getListThucAn(), ThucPhamService.getListThucUong(), 800.00, d.parse("31/12/2021")));
+        listHoaDon.add(new HoaDon(ThucPhamService.getListThucAn(), ThucPhamService.getListThucUong(), 900.00, d.parse("15/1/2022")));
+
     }
 
     public static void chonBan() {

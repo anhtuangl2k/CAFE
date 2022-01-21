@@ -52,17 +52,19 @@ public class ThongKeService {
         int thang = scanner.nextInt();
         double tongTienThang = 0;
         int slMon = 0, slNuoc = 0;
+        int slHD = 0;
 
         for (int i = 0; i < HoaDonService.getListHoaDon().size(); i++) {
             if (HoaDonService.getListHoaDon().get(i).getNgayTao().getMonth() + 1 == thang) {
                 tongTienThang += HoaDonService.getListHoaDon().get(i).getTongTien();
+                slHD++;
                 slMon += HoaDonService.getListHoaDon().get(i).getListThucAnHoaDon().size();
                 slNuoc += HoaDonService.getListHoaDon().get(i).getListThucUongHoaDon().size();
             }
         }
         System.out.println(String.format("So hoa theo thang la: %d\n So tong tien "
                 + "theo thang la: %f\n So luong nuoc ban la: %d\n So luong mon an ban la: %d",
-                HoaDonService.getListHoaDon().size(), tongTienThang, slNuoc, slMon));
+                slHD, tongTienThang, slNuoc, slMon));
     }
 
     public static void thongKeTheoThoiGian() throws ParseException {
@@ -71,25 +73,27 @@ public class ThongKeService {
         String begin = scanner.nextLine();
         System.out.println("Nhap ngay ket thuc: ");
         String end = scanner.nextLine();
-        int thang = scanner.nextInt();
         double tongTienThang = 0;
         int slMon = 0, slNuoc = 0;
-        
+        int slHD = 0;
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date beginDate = sdf.parse(begin);
         Date endDate = sdf.parse(end);
 
         for (int i = 0; i < HoaDonService.getListHoaDon().size(); i++) {
-            if (HoaDonService.getListHoaDon().get(i).getNgayTao().compareTo(endDate) < 0 &&
-                   HoaDonService.getListHoaDon().get(i).getNgayTao().compareTo(beginDate) > 0 ) {
+            if (HoaDonService.getListHoaDon().get(i).getNgayTao().compareTo(endDate) <= 0
+                    && HoaDonService.getListHoaDon().get(i).getNgayTao().compareTo(beginDate) >= 0) {
+
+                slHD++;
                 tongTienThang += HoaDonService.getListHoaDon().get(i).getTongTien();
                 slMon += HoaDonService.getListHoaDon().get(i).getListThucAnHoaDon().size();
                 slNuoc += HoaDonService.getListHoaDon().get(i).getListThucUongHoaDon().size();
             }
         }
-        
+
         System.out.println(String.format("So hoa theo thang la: %d\n So tong tien "
                 + "theo thang la: %f\n So luong nuoc ban la: %d\n So luong mon an ban la: %d",
-                HoaDonService.getListHoaDon().size(), tongTienThang, slNuoc, slMon));
+                slHD, tongTienThang, slNuoc, slMon));
     }
 }
